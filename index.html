@@ -3,125 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpeningMatrix - Coming Soon</title>
+    <title>OpeningMatrix — Chess Training Repertoire Software</title>
     <style>
         * { box-sizing: border-box; }
+        
         body {
-            background-color: #050b11;
+            background-color: #020408;
+            /* Reworked: Sophisticated emerald-mint and deep-sapphire ambient overlays */
+            background-image: 
+                radial-gradient(circle at 50% -20%, #0c1e36 0%, transparent 65%),
+                radial-gradient(circle at 100% 100%, #061614 0%, transparent 40%);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         
-        .roadmap-page {
-            width: min(650px, 100%);
-            padding: 40px 20px;
+        /* Expanded the overall container layout limit from 640px to 1040px to support the larger video area */
+        .page-container {
+            width: min(1040px, 100%);
+            padding: 60px 24px;
             text-align: center;
         }
 
-        .roadmap-header {
-            margin-bottom: 40px;
+        /* Constrains text sections so they stay tight and readable while the video scales up */
+        .header-section {
+            max-width: 640px;
+            margin: 0 auto 56px auto;
         }
 
-        .roadmap-header .eyebrow {
-            display: inline-block;
-            margin-bottom: 12px;
+        /* Reworked: Premium status pill utilizing emerald-mint indicators for an authoritative look */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
             font-size: 0.75rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #9fefff;
-            opacity: 0.9;
+            letter-spacing: 0.02em;
+            color: #f1f5f9;
+            background: rgba(16, 28, 36, 0.7);
+            border: 1px solid rgba(52, 211, 153, 0.3); /* Soft emerald mint outline */
+            padding: 8px 16px;
+            border-radius: 999px;
             font-weight: 600;
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.03);
         }
 
-        .roadmap-header h1 {
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: #34d399; /* Deep emerald mint dot */
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px #34d399;
+            animation: breathe 2.5s infinite ease-in-out;
+        }
+
+        /* Monolithic, crisp enterprise header typography */
+        h1 {
             margin: 0;
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
-            letter-spacing: -0.05em;
-            color: #f3fbff;
+            font-size: clamp(2.8rem, 6.5vw, 4rem);
+            letter-spacing: -0.04em;
+            color: #ffffff;
             font-weight: 800;
+            line-height: 1.1;
         }
 
-        .roadmap-header p {
-            margin: 16px auto 0;
-            max-width: 500px;
-            color: #a6bfd0;
-            line-height: 1.8;
-            font-size: 1.1rem;
+        /* Reworked: Ultra-clean minty ocean ice text gradient for the core metric link */
+        .sub-headline {
+            display: block;
+            margin-top: 12px;
+            font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.3;
+            padding-bottom: 8px; /* Protects descenders from being cut off */
+            background: linear-gradient(135deg, #a7f3d0 0%, #34d399 50%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* --- Email Signup Section --- */
-        .signup-container {
-            background: linear-gradient(135deg, rgba(16, 28, 41, 0.7), rgba(7, 12, 18, 0.9));
-            border: 1px solid rgba(159, 239, 255, 0.25);
-            border-radius: 22px;
-            padding: 30px 25px;
+        /* Refined, smooth silver-white text gradient */
+        .brand-gradient {
+            background: linear-gradient(180deg, #ffffff 50%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Crisp professional introduction text contrast rules */
+        .header-section p {
+            margin: 24px auto 0;
+            max-width: 540px;
+            color: #94a3b8; /* Crisp slate gray text for relaxed readability */
+            line-height: 1.75;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            font-weight: 400;
+        }
+
+        /* --- High Visibility Cinematic Video Showcase --- */
+        .video-showcase-container {
+            width: 100%;
+            max-width: 960px; /* Huge presentation size for maximum chess board detail */
+            margin: 0 auto 64px auto;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #090f1c;
+            /* Vibrant emerald-mint border glow to highlight the active feature loop */
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            box-shadow: 
+                0 30px 70px -10px rgba(0, 0, 0, 0.9),
+                0 0 60px -10px rgba(52, 211, 153, 0.08);
+            display: flex;
+        }
+
+        .video-showcase-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* --- Reworked: Monolithic Deep Slate Signup Module --- */
+        .signup-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(9, 15, 28, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 40px 32px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        }
-
-        .signup-text {
-            text-align: center;
+            gap: 24px;
+            box-shadow: 
+                0 30px 60px -15px rgba(0, 0, 0, 0.8),
+                0 0 50px -10px rgba(52, 211, 153, 0.02);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
 
         .signup-text h3 {
-            margin: 0 0 6px 0;
-            color: #f6fbff;
-            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            font-size: 1.35rem;
             letter-spacing: -0.02em;
+            font-weight: 700;
         }
 
         .signup-text p {
             margin: 0;
-            color: #a6bfd0;
-            font-size: 0.95rem;
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
         .signup-form {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             width: 100%;
-            max-width: 450px;
+            max-width: 440px;
         }
 
         .signup-form input[type="email"] {
             flex: 1;
-            padding: 14px 16px;
+            padding: 16px 20px;
             border-radius: 12px;
-            border: 1px solid rgba(124, 176, 255, 0.2);
-            background: rgba(5, 11, 17, 0.8);
-            color: #f3fbff;
-            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #040811;
+            color: #ffffff;
+            font-size: 1rem;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s ease;
         }
 
         .signup-form input[type="email"]:focus {
-            border-color: #9fefff;
+            border-color: rgba(52, 211, 153, 0.5); /* Focus highlight switches to mint green */
+            box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.08);
         }
 
+        /* Solid corporate white action button with deep gray contrast */
         .signup-form button {
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: 12px;
             border: none;
-            background: #9fefff;
-            color: #050b11;
-            font-weight: 600;
-            font-size: 0.95rem;
+            background: #ffffff;
+            color: #0b1329;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
-            transition: opacity 0.2s;
+            transition: all 0.2s ease;
             white-space: nowrap;
         }
 
         .signup-form button:hover {
-            opacity: 0.9;
+            background: #f8fafc;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12);
+            transform: translateY(-0.5px);
+        }
+
+        .signup-form button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
         }
 
         @media (max-width: 500px) {
@@ -136,22 +228,37 @@
 </head>
 <body>
 
-<main class="roadmap-page">
-    <section class="roadmap-header">
-        <span class="eyebrow">Coming Soon</span>
-        <h1>OpeningMatrix</h1>
+<main class="page-container">
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            Under Construction
+        </div>
+        <h1>
+            <span class="brand-gradient">OpeningMatrix</span>
+            <span class="sub-headline">Win more of your chess games online.</span>
+        </h1>
         <p>
-            A powerful new platform is currently under construction. We are fine-tuning the systems for launch.
+            Stop losing your chess games in the first ten moves. OpeningMatrix is a simple, interactive move-trainer built to help beginners and intermediate players survive the opening.
         </p>
     </section>
 
-    <section class="signup-container">
+    <!-- Expanded High Visibility Video Section -->
+    <div class="video-showcase-container">
+        <video width="100%" height="auto" autoplay loop muted playsinline>
+            <source src="assets/chess-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Active Email Capture Card Endpoint Linked -->
+    <section class="signup-card">
         <div class="signup-text">
-            <h3>Get early access</h3>
-            <p>Drop your email to get notified the second we launch beta testing.</p>
+            <h3>Want to test the alpha?</h3>
+            <p>Leave your email below and we'll notify you as soon as early preview invitations go live.</p>
         </div>
-        <!-- INTEGRATED TARGET LINK HERE -->
-        <form class="signup-form" action="https://formspree.io/f/xjyvwgqg" method="POST">
+        <form class="signup-form" action="https://formspree.io" method="POST">
             <input type="email" name="email" placeholder="Enter your email address" required>
             <button type="submit">Notify Me</button>
         </form>
