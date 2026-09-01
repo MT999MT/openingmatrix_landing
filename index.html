@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LineTrainer - Roadmap</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #050b11;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        .roadmap-page {
+            width: min(1200px, 100%);
+            padding: 30px 20px 50px;
+        }
+
+        .roadmap-header {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .roadmap-header .eyebrow {
+            display: inline-block;
+            margin-bottom: 12px;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #9fefff;
+            opacity: 0.9;
+        }
+
+        .roadmap-header h1 {
+            margin: 0;
+            font-size: clamp(2.1rem, 3.8vw, 3rem);
+            letter-spacing: -0.05em;
+            color: #f3fbff;
+            font-weight: 800;
+        }
+
+        .roadmap-header p {
+            margin: 14px 0 0;
+            max-width: 760px;
+            color: #a6bfd0;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* --- NEW: Email Signup Section --- */
+        .signup-container {
+            background: linear-gradient(135deg, rgba(16, 28, 41, 0.7), rgba(7, 12, 18, 0.9));
+            border: 1px solid rgba(159, 239, 255, 0.25);
+            border-radius: 22px;
+            padding: 25px;
+            margin-bottom: 35px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        .signup-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .signup-text h3 {
+            margin: 0 0 6px 0;
+            color: #f6fbff;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .signup-text p {
+            margin: 0;
+            color: #a6bfd0;
+            font-size: 0.9rem;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .signup-form input[type="email"] {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(124, 176, 255, 0.2);
+            background: rgba(5, 11, 17, 0.8);
+            color: #f3fbff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .signup-form input[type="email"]:focus {
+            border-color: #9fefff;
+        }
+
+        .signup-form button {
+            padding: 12px 24px;
+            border-radius: 10px;
+            border: none;
+            background: #9fefff;
+            color: #050b11;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .signup-form button:hover {
+            opacity: 0.9;
+        }
+        /* --------------------------------- */
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .roadmap-card {
+            background: linear-gradient(180deg, rgba(10, 17, 24, 0.96), rgba(7, 12, 18, 0.96));
+            border: 1px solid rgba(124, 176, 255, 0.17);
+            border-radius: 22px;
+            padding: 22px 20px 18px;
+            text-align: left;
+            box-shadow: 0 16px 28px rgba(0,0,0,0.12);
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(125, 234, 255, 0.08);
+            border: 1px solid rgba(125, 234, 255, 0.2);
+            color: #a8f5ff;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .roadmap-card h2 {
+            margin: 16px 0 10px;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            letter-spacing: -0.04em;
+            color: #f6fbff;
+        }
+
+        .status-pill {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(111, 243, 196, 0.12);
+            color: #8ef0c7;
+            border: 1px solid rgba(111, 243, 196, 0.2);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .status-pill.in-progress {
+            background: rgba(253, 224, 71, 0.12);
+            color: #fde047;
+            border: 1px solid rgba(253, 224, 71, 0.2);
+        }
+
+        .roadmap-card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .roadmap-card li {
+            position: relative;
+            padding-left: 18px;
+            color: #b1c7d5;
+            line-height: 1.7;
+        }
+
+        .roadmap-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #8ae8ff;
+        }
+
+        @media (max-width: 800px) {
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roadmap-header, .signup-container {
+                text-align: center;
+            }
+
+            .roadmap-header p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .signup-container {
+                justify-content: center;
+            }
+
+            .signup-form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main class="roadmap-page">
+    <section class="roadmap-header">
+        <span class="eyebrow">Product roadmap</span>
+        <h1>What we’re working on</h1>
+        <p>
+            A few ideas we’re exploring as the app grows — mostly around making study sessions more personal, smoother, and a bit more fun.
+        </p>
+    </section>
+
+    <!-- NEW SIGNUP ELEMENT PLACED ABOVE THE ROADMAP TILES -->
+    <section class="signup-container">
+        <div class="signup-text">
+            <h3>Get early access</h3>
+            <p>We'll ping you the second beta testing accounts open up.</p>
+        </div>
+        <!-- Note: Swap action link out with Formspree, Mailchimp, or any static form tool later -->
+        <form class="signup-form" action="#" method="POST">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <button type="submit">Notify Me</button>
+        </form>
+    </section>
+
+    <section class="roadmap-grid">
+        <article class="roadmap-card">
+            <span class="phase-tag">Phase 1</span>
+            <h2>Core Infrastructure</h2>
+            <span class="status-pill">Completed</span>
+            <ul>
+                <li>Setup domain configuration at Porkbun</li>
+                <li>Design lightning-fast static landing page layout</li>
+                <li>Establish Git environments for Flask repository</li>
+            </ul>
+        </article>
+
+        <article class="roadmap-card">
+            <span class="phase-tag">Phase 2</span>
+            <h2>Flask Application Backend</h2>
+            <span class="status-pill in-progress">In Progress</span>
+            <ul>
+                <li>Design scalable database architectures</li>
+                <li>Implement core authentication routing logic</li>
+                <li>Integrate interactive UI trainer dashboard modules</li>
+            </ul>
+        </article>
+    </section>
+</main>
+
+</body>
+</html>
